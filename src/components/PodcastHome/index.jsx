@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 const PodcastHome = props => {
 	const handleStoragePodcast = () => {
-		const podcastId = props.podcast.id.attributes['im:id']
+		const podcastId = props.podcast.id.attributes['im:id'].toString()
 		const data = props.podcast
 
 		const existingPodcast = localStorage.getItem(podcastId)
 
 		if (!existingPodcast) {
-			const newPodcast = { id: podcastId, data }
+			const newPodcast = { id: podcastId, data, timestamp: Date.now() }
 			localStorage.setItem(podcastId, JSON.stringify(newPodcast))
 		}
 	}

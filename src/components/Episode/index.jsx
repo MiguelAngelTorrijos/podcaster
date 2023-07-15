@@ -8,7 +8,11 @@ const Episode = ({ podcastDetails }) => {
 		const podcastId = 'PodcastDetails' + id
 		const existingPodcast = localStorage.getItem(podcastId)
 		if (!existingPodcast) {
-			const newPodcast = { id: podcastId, podcastDetails }
+			const newPodcast = {
+				id: podcastId,
+				podcastDetails,
+				timestamp: Date.now(),
+			}
 			localStorage.setItem(podcastId, JSON.stringify(newPodcast))
 		}
 	}

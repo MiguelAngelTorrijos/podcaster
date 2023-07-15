@@ -5,6 +5,7 @@ import './styles.scss'
 import { getPodcastDetails } from '../../services'
 import PodcastInfo from '../../components/PodcastInfo'
 import Episode from '../../components/Episode'
+import Layout from '../../components/ui/Layout'
 
 const PodcastPage = () => {
 	const { id } = useParams()
@@ -20,11 +21,12 @@ const PodcastPage = () => {
 	useEffect(() => {
 		fetchPodcastsDetails()
 	}, [])
+
 	return (
-		<>
+		<Layout>
 			<PodcastInfo id={id} />
 			<Episode podcastDetails={podcastDetails} />
-		</>
+		</Layout>
 	)
 }
 
