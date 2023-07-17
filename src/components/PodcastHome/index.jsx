@@ -19,7 +19,7 @@ const PodcastHome = props => {
 			>
 				<img
 					className='phc-image'
-					src={props.podcast['im:image'][0].label}
+					src={props.podcast['im:image'][2].label}
 					alt={props.podcast['im:name'].label + ' image'}
 				/>
 			</Link>

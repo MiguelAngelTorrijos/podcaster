@@ -13,7 +13,6 @@
 }
 .podp-container {
 	padding: 0 30px;
-	width: 100%;
 	max-width: 1400px;
 	display: flex;
 	justify-content: space-between;
@@ -29,7 +28,7 @@
 	}
 
 	.podp-list {
-		width: 100%;
+		width: 1000px;
 		margin-top: 130px;
 		background-color: $background;
 		padding: 15px;
@@ -40,6 +39,25 @@
 
 		@media (max-width: 1240px) {
 			margin-top: 10px;
+		}
+
+		.podp-table-titles {
+			display: flex;
+			justify-content: center;
+			font-family: Inter;
+			font-size: 18px;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid #959d99;
+			gap: 20px;
+			font-weight: bold;
+			color: #ffffff;
+
+			.podp-table-others {
+				display: flex;
+				min-width: 250px;
+				justify-content: space-between;
+			}
 		}
 	}
 }

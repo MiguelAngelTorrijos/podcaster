@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './styles.scss'
+import Linkify from 'react-linkify'
 
 const PodcastInfo = ({ id }) => {
 	const [localStorageData, setLocalStorageData] = useState(null)
@@ -14,6 +15,8 @@ const PodcastInfo = ({ id }) => {
 			setLocalStorageData(parsedData.data.podcast)
 		}
 	}, [])
+
+	const description = 'Description'
 
 	return (
 		<>
@@ -39,8 +42,10 @@ const PodcastInfo = ({ id }) => {
 							{localStorageData['im:name'].label}
 						</Link>
 						<div className='pod-info-description'>
-							<span>Description</span>
-							<p>{localStorageData.summary.label}</p>
+							<span>{description}</span>
+							<Linkify>
+								<p>{localStorageData.summary.label}</p>
+							</Linkify>
 						</div>
 					</div>
 				</div>

@@ -25,7 +25,7 @@ const useFetchDataWithCach = async (
 		localStorage.setItem(cacheKey, dataWithTimestamp)
 		return { data }
 	} catch (error) {
-		console.error('Error al obtener la data:', error)
+		console.error('Error when fetching data:', error)
 		throw error
 	}
 }

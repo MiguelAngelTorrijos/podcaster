@@ -59,6 +59,10 @@
 		a {
 			color: $smokeWhite;
 			text-decoration: underline;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			display: block;
+			overflow: hidden;
 		}
 	}
 

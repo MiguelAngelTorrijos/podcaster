@@ -7,10 +7,16 @@ import Episode from '../../components/Episode'
 import Layout from '../../components/ui/Layout'
 import TitleSection from '../../components/ui/TitleSection'
 import useFetchDataWithCach from '../../hooks/useFetchDataWithCache'
+import { scrollTop } from '../../utilities/scrollTop'
 
 const PodcastPage = () => {
 	const { id } = useParams()
 	const [podcastDetails, setPodcastDetails] = useState([])
+	const [idPodcast, setIdPodcast] = useState(null)
+
+	useEffect(() => {
+		scrollTop()
+	}, [])
 
 	const fetchPodcastsDetails = async () => {
 		const allOriginsProxy = process.env.REACT_APP_ALL_SERVICE_API_URL
@@ -29,16 +35,28 @@ const PodcastPage = () => {
 		fetchPodcastsDetails()
 	}, [])
 
+	useEffect(() => {
+		if (podcastDetails.results) {
+			setIdPodcast(
+				podcastDetails.results.find(result => result.wrapperType === 'track')
+					.collectionId,
+			)
+		}
+	}, [podcastDetails.results])
+
+	const title = 'Episodes'
+
 	return (
 		<Layout>
 			<div className='super-container'>
 				<div className='podp-container'>
-					<PodcastInfo id={id} />
+					{idPodcast && <PodcastInfo id={String(idPodcast)} />}
 					<div className='podp-list'>
 						<TitleSection
-							title='Episodes'
+							title={title}
 							quantity={podcastDetails.resultCount - 1}
 						/>
+
 						<Episode podcastDetails={podcastDetails.results} />
 					</div>
 				</div>

@@ -1,28 +1,33 @@
 @import '../../styles/variables/colors';
 
-.sb-input {
+.sb-container {
+	border: 2px solid $white;
+	border-radius: 50px;
 	display: flex;
-	width: 484.037px;
-	color: #49504d;
-	font-family: Inter;
-	font-size: 20 px;
-	font-weight: regular;
-	box-shadow: 0px 0px 16.690935134887695px 0px rgba(0, 0, 0, 0.5);
-	border-radius: 4.769px;
-	border-color: #49504d;
+	justify-content: center;
+	align-items: center;
 	padding: 10px;
 	margin-bottom: 20px;
-
-	@media (max-width: 640px) {
-		width: calc(100% - 30px);
+	.sb-icon {
+		path {
+			fill: $white;
+		}
 	}
-
-	&:focus-visible {
-		border-color: $red;
+	.sb-input {
+		display: flex;
+		width: 484.037px;
+		color: $white;
+		font-family: Inter;
+		font-size: 21px;
+		font-weight: regular;
+		border-radius: 4.769px;
+		padding-left: 10px;
+		background-color: inherit;
 		border: none;
-	}
+		outline: none;
 
-	&:active {
-		border-color: $red;
+		@media (max-width: 640px) {
+			width: calc(100% - 30px);
+		}
 	}
 }

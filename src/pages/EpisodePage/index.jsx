@@ -4,9 +4,14 @@ import PodcastInfo from '../../components/PodcastInfo'
 
 import EpisodeDetails from '../../components/EpisodeDetails'
 import Layout from '../../components/ui/Layout'
+import { useEffect } from 'react'
+import { scrollTop } from '../../utilities/scrollTop'
 
 const EpisodePage = () => {
 	const { podcastId, episodeId } = useParams()
+	useEffect(() => {
+		scrollTop()
+	}, [])
 
 	return (
 		<Layout>

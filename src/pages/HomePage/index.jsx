@@ -7,10 +7,15 @@ import Layout from '../../components/ui/Layout'
 import TitleSection from '../../components/ui/TitleSection'
 
 import useFetchDataWithCach from '../../hooks/useFetchDataWithCache'
+import { scrollTop } from '../../utilities/scrollTop'
 
 const HomePage = () => {
 	const [podcasts, setPodcasts] = useState([])
 	const [searchTerm, setSearchTerm] = useState('')
+
+	useEffect(() => {
+		scrollTop()
+	}, [])
 
 	const fetchAllPodcasts = async () => {
 		const limit = 100
@@ -41,16 +46,14 @@ const HomePage = () => {
 
 	const notResult = `Sorry at the moment we don't have the podcast ${searchTerm}, but we have other very
 interesting ones.`
+	const title = 'All Podcasts'
 
 	return (
 		<>
 			<Layout>
 				<div className='hoc-container'>
 					<SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-					<TitleSection
-						title='All Podcasts'
-						quantity={filteredPodcasts?.length}
-					/>
+					<TitleSection title={title} quantity={filteredPodcasts?.length} />
 
 					<div className='hoc-grid-podcasts'>
 						{filteredPodcasts?.map(podcast => (
