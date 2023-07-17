@@ -1,0 +1,28 @@
+@import '../../styles/variables/colors';
+
+.sb-input {
+	display: flex;
+	width: 484.037px;
+	color: #49504d;
+	font-family: Inter;
+	font-size: 20 px;
+	font-weight: regular;
+	box-shadow: 0px 0px 16.690935134887695px 0px rgba(0, 0, 0, 0.5);
+	border-radius: 4.769px;
+	border-color: #49504d;
+	padding: 10px;
+	margin-bottom: 20px;
+
+	@media (max-width: 640px) {
+		width: calc(100% - 30px);
+	}
+
+	&:focus-visible {
+		border-color: $red;
+		border: none;
+	}
+
+	&:active {
+		border-color: $red;
+	}
+}

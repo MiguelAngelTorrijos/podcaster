@@ -1,41 +1,43 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import './styles.scss'
+import { infoCachedData } from '../../utilities/getInfoCacheData'
 
 const PodcastHome = props => {
-	const handleStoragePodcast = () => {
-		const podcastId = props.podcast.id.attributes['im:id'].toString()
-		const data = props.podcast
-
-		const existingPodcast = localStorage.getItem(podcastId)
-
-		if (!existingPodcast) {
-			const newPodcast = { id: podcastId, data, timestamp: Date.now() }
-			localStorage.setItem(podcastId, JSON.stringify(newPodcast))
-		}
+	const handleDataInfo = () => {
+		const data = props
+		const maxAge = 24 * 60 * 60 * 1000
+		const cacheKey = 'details_podcast_' + props.podcast.id.attributes['im:id']
+		infoCachedData(maxAge, cacheKey, data)
 	}
 
 	return (
-		<>
-			<img
-				src={props.podcast['im:image'][0].label}
-				alt={props.podcast['im:name'].label + ' image'}
-			/>
+		<div className='phc-container'>
 			<Link
-				onClick={handleStoragePodcast}
+				onClick={handleDataInfo}
 				to={`/podcast/${props.podcast.id.attributes['im:id']}`}
 			>
-				{props.podcast['im:artist'].label}
+				<img
+					className='phc-image'
+					src={props.podcast['im:image'][0].label}
+					alt={props.podcast['im:name'].label + ' image'}
+				/>
 			</Link>
-			<br />
 			<Link
-				onClick={handleStoragePodcast}
+				className='phc-name'
+				onClick={handleDataInfo}
 				to={`/podcast/${props.podcast.id.attributes['im:id']}`}
 			>
 				{props.podcast['im:name'].label}
 			</Link>
-			<br />
-			<br />
-		</>
+			<Link
+				className='phc-artist'
+				onClick={handleDataInfo}
+				to={`/podcast/${props.podcast.id.attributes['im:id']}`}
+			>
+				{props.podcast['im:artist'].label}
+			</Link>
+		</div>
 	)
 }
 

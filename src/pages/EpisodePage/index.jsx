@@ -10,9 +10,14 @@ const EpisodePage = () => {
 
 	return (
 		<Layout>
-			<h1>Episode</h1>
-			<PodcastInfo id={podcastId} />
-			<EpisodeDetails episodeId={episodeId} podcastId={podcastId} />
+			<div className='super-container'>
+				<div className='episode-container'>
+					<div className='episode-container'>
+						<PodcastInfo id={podcastId} />
+						<EpisodeDetails episodeId={episodeId} podcastId={podcastId} />
+					</div>
+				</div>
+			</div>
 		</Layout>
 	)
 }

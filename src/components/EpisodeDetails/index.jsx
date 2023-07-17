@@ -1,25 +1,24 @@
 import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import './styles.scss'
 
 import Linkify from 'react-linkify'
 
 const EpisodeDetails = ({ podcastId, episodeId }) => {
 	const [episodeDetails, setEpisodeDetails] = useState({})
-
 	const [localStorageData, setLocalStorageData] = useState({})
 
 	useEffect(() => {
-		const storedData = localStorage.getItem('PodcastDetails' + podcastId)
-
+		const storedData = localStorage.getItem('podcast_' + podcastId)
 		if (storedData) {
 			const parsedData = JSON.parse(storedData)
-			setLocalStorageData(parsedData)
+			setLocalStorageData(JSON.parse(parsedData.data.contents).results)
 		}
 	}, [])
 
 	useEffect(() => {
-		if (localStorageData.podcastDetails) {
-			const episodesArr = Object.entries(localStorageData?.podcastDetails).map(
+		if (localStorageData.length > 0) {
+			const episodesArr = Object.entries(localStorageData).map(
 				([key, value]) => ({
 					key,
 					value,
@@ -31,19 +30,27 @@ const EpisodeDetails = ({ podcastId, episodeId }) => {
 				),
 			)
 		}
-	}, [localStorageData.podcastDetails])
+	}, [localStorageData.length > 0])
+
 	return (
 		<>
 			{episodeDetails.value && (
 				<>
-					<div>
-						<h1>{episodeDetails.value.trackName}</h1>
+					<div className='eps-container'>
+						<h1 className='eps-title'>{episodeDetails.value.trackName}</h1>
 						<Linkify>
-							<p>{episodeDetails.value.description}</p>
+							<p className='eps-description'>
+								{episodeDetails.value.description}
+							</p>
 						</Linkify>
-						<audio controls>
-							<source src={episodeDetails.value.previewUrl} type='audio/mp3' />
-						</audio>
+						<div className='eps-audio-container'>
+							<audio controls>
+								<source
+									src={episodeDetails.value.previewUrl}
+									type='audio/mp3'
+								/>
+							</audio>
+						</div>
 					</div>
 				</>
 			)}

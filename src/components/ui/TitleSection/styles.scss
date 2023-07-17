@@ -1,0 +1,21 @@
+@import '../../../styles/variables/colors';
+
+.ts-title {
+	display: flex;
+	gap: 20px;
+	color: $white;
+	font-family: Inter;
+	font-size: 22.89px;
+	font-weight: 600;
+	line-height: normal;
+
+	.ts-quantity {
+		text-align: center;
+		min-width: 53px;
+		background-color: $red;
+		padding: 2px 5px;
+		border-radius: 10px;
+		font-size: 20px;
+		max-height: 24px;
+	}
+}

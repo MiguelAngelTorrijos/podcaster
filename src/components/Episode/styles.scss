@@ -1,0 +1,71 @@
+@import '../../styles/variables/colors';
+
+.podp-episode-container {
+	display: flex;
+	justify-content: center;
+	font-family: Inter;
+	font-size: 15.26px;
+	padding: 14px 0;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid $gray;
+	gap: 20px;
+
+	.podp-episode-title {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		.podp-episode-text {
+			color: $white;
+			font-weight: bold;
+			text-decoration: none;
+			max-width: 290px;
+			line-height: 22px;
+		}
+	}
+
+	.podp-episode-other-details {
+		display: flex;
+		min-width: 250px;
+		justify-content: space-between;
+
+		.podp-episode-date {
+			font-weight: medium;
+			color: $ligthGray800;
+		}
+		.podp-episode-time {
+			font-weight: bold;
+			color: $white;
+		}
+	}
+
+	@media (max-width: 640px) {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0;
+
+		.podp-episode-other-details {
+			width: 100%;
+		}
+	}
+}
+.podp-loader-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: calc(100% - 73.75px);
+
+	.podp-episode-msg-search {
+		color: $white;
+		font-weight: bold;
+		text-decoration: none;
+		line-height: 22px;
+	}
+
+	.podp-loader {
+		height: 40px;
+	}
+}

@@ -1,0 +1,31 @@
+@import '../../styles/variables/colors';
+
+.hoc-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 120px 30px 100px 30px;
+
+	.hoc-grid-podcasts {
+		max-width: 1400px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 24px;
+	}
+
+	.hoc-msg-nr {
+		color: $ligthGray800;
+		font-family: Inter;
+		font-size: 15.26px;
+		font-style: normal;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	@media (max-width: 640px) {
+		.hoc-grid-podcasts {
+			gap: 20px;
+		}
+	}
+}

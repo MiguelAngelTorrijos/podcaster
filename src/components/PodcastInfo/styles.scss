@@ -1,0 +1,102 @@
+@import '../../styles/variables/colors';
+
+.pod-info-container {
+	width: 100%;
+	height: fit-content;
+	max-width: 400px;
+	margin-top: 130px;
+	background-color: $background;
+	padding: 15px;
+	border-radius: 15px;
+	box-shadow: 0px 3.8150708675px 21.9366569519px 0px rgba(16, 18, 35, 0.3);
+
+	.pod-info-img {
+		width: 100%;
+		height: auto;
+		border-radius: 15px;
+		background-color: $background;
+		margin-bottom: 12px;
+	}
+
+	.pod-info-artist {
+		color: $white;
+		font-family: Inter;
+		font-size: 24px;
+		font-weight: bold;
+		line-height: normal;
+		text-decoration: none;
+	}
+
+	.pod-info-name {
+		color: $ligthGray800;
+		font-family: Inter;
+		font-size: 20px;
+		font-weight: thin;
+		line-height: normal;
+		text-decoration: none;
+	}
+
+	.pod-info-description {
+		margin-top: 24px;
+		font-family: Inter;
+
+		span {
+			color: $red;
+			font-size: 22px;
+			font-weight: medium;
+			line-height: normal;
+			text-decoration: none;
+		}
+
+		p,
+		a {
+			color: $white;
+			font-weight: bold;
+			text-decoration: none;
+			line-height: 30px;
+		}
+
+		a {
+			color: $smokeWhite;
+			text-decoration: underline;
+		}
+	}
+
+	@media (max-width: 1240px) {
+		display: flex;
+		width: 100%;
+		max-width: 100%;
+		gap: 24px;
+		box-sizing: border-box;
+
+		.pod-info-img {
+			width: 200px;
+			height: 200px;
+			margin-bottom: 0;
+		}
+
+		.pod-info-description {
+			p {
+				margin-top: 5px;
+			}
+		}
+	}
+
+	@media (max-width: 640px) {
+		display: flex;
+		flex-direction: column;
+		margin-top: 100px;
+
+		.pod-info-img {
+			width: 100%;
+			height: auto;
+			margin-bottom: 0;
+		}
+
+		.pod-info-description {
+			p {
+				margin-top: 5px;
+			}
+		}
+	}
+}

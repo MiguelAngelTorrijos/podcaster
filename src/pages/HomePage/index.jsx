@@ -2,17 +2,25 @@ import { useEffect, useState } from 'react'
 import './styles.scss'
 import PodcastHome from '../../components/PodcastHome'
 
-import { getAllPodcasts } from '../../services'
 import SearchBar from '../../components/SearchBar'
 import Layout from '../../components/ui/Layout'
+import TitleSection from '../../components/ui/TitleSection'
+
+import useFetchDataWithCach from '../../hooks/useFetchDataWithCache'
 
 const HomePage = () => {
 	const [podcasts, setPodcasts] = useState([])
 	const [searchTerm, setSearchTerm] = useState('')
 
 	const fetchAllPodcasts = async () => {
-		const limitPodcasts = 100
-		const { data } = await getAllPodcasts(limitPodcasts)
+		const limit = 100
+		const itunesURL = process.env.REACT_APP_ALL_ITUNES_API_URL
+
+		const { data } = await useFetchDataWithCach(
+			`${itunesURL}/us/rss/toppodcasts/limit=${limit}/genre=1310/json`,
+			'all_podcasts',
+			24 * 60 * 60 * 1000,
+		)
 		setPodcasts(data.feed.entry)
 	}
 
@@ -37,11 +45,25 @@ interesting ones.`
 	return (
 		<>
 			<Layout>
-				<SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-				{filteredPodcasts.map(podcast => (
-					<PodcastHome key={podcast.id.attributes['im:id']} podcast={podcast} />
-				))}
-				{filteredPodcasts.length === 0 && <p>{notResult}</p>}
+				<div className='hoc-container'>
+					<SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+					<TitleSection
+						title='All Podcasts'
+						quantity={filteredPodcasts?.length}
+					/>
+
+					<div className='hoc-grid-podcasts'>
+						{filteredPodcasts?.map(podcast => (
+							<PodcastHome
+								key={podcast.id.attributes['im:id']}
+								podcast={podcast}
+							/>
+						))}
+					</div>
+					{filteredPodcasts?.length === 0 && (
+						<p className='hoc-msg-nr'>{notResult}</p>
+					)}
+				</div>
 			</Layout>
 		</>
 	)

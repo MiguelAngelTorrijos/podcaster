@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import './styles.scss'
 
 const SearchBar = ({ setSearchTerm, searchTerm }) => {
 	const handleSearchTerm = event => {
@@ -7,10 +8,11 @@ const SearchBar = ({ setSearchTerm, searchTerm }) => {
 
 	return (
 		<input
+			className='sb-input'
 			type='text'
 			value={searchTerm}
 			onChange={handleSearchTerm}
-			placeholder='Search...'
+			placeholder='Search artists, podcasts...'
 		/>
 	)
 }

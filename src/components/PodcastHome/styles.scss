@@ -1,0 +1,75 @@
+@import '../../styles/variables/colors';
+
+.phc-container {
+	display: flex;
+	flex-direction: column;
+
+	.phc-image {
+		width: 170px;
+		height: 170px;
+		border-radius: 3.815px;
+		background-color: $background;
+		margin-bottom: 12px;
+	}
+
+	.phc-name,
+	.phc-artist {
+		font-family: Inter;
+		text-decoration: none;
+		line-height: normal;
+		max-width: 170px;
+	}
+
+	.phc-name {
+		font-size: 15.26px;
+		font-weight: bold;
+		color: $ligthGray900;
+		margin-bottom: 2px;
+	}
+
+	.phc-artist {
+		font-size: 13.353px;
+		font-weight: thin;
+		color: $ligthGray800;
+	}
+
+	@media (max-width: 1240px) {
+		.phc-image {
+			width: 140px;
+			height: 140px;
+		}
+
+		.phc-name,
+		.phc-artist {
+			max-width: 140px;
+		}
+
+		.phc-name {
+			font-size: 12px;
+		}
+
+		.phc-artist {
+			font-size: 10px;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.phc-image {
+			width: 120px;
+			height: 120px;
+		}
+
+		.phc-name,
+		.phc-artist {
+			max-width: 120px;
+		}
+
+		.phc-name {
+			font-size: 12px;
+		}
+
+		.phc-artist {
+			font-size: 10px;
+		}
+	}
+}

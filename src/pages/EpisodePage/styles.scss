@@ -1,0 +1,30 @@
+@import '../../styles/variables/colors';
+
+.super-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media (max-width: 640px) {
+		padding: 0 16px;
+		box-sizing: border-box;
+	}
+}
+.episode-container {
+	padding: 0 30px;
+	width: 100%;
+	max-width: 1400px;
+	display: flex;
+	justify-content: space-between;
+	gap: 50px;
+	margin-bottom: 100px;
+
+	@media (max-width: 1240px) {
+		flex-direction: column;
+	}
+
+	@media (max-width: 640px) {
+		padding: 0;
+	}
+}

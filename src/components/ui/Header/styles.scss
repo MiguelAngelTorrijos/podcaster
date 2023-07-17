@@ -1,0 +1,24 @@
+@import '../../../styles/variables/colors';
+
+.header {
+	display: flex;
+	align-items: center;
+	position: fixed;
+	justify-content: center;
+	background-color: #171717;
+	width: 100%;
+	display: flex;
+
+	.he-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1400px;
+		width: 100%;
+		padding: 18px 30px;
+
+		.he-logo {
+			width: 150px;
+		}
+	}
+}

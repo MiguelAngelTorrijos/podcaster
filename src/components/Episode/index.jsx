@@ -1,25 +1,13 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import './styles.scss'
+import { ReactComponent as PlayIcon } from '../../assets/play_circle_filled.svg'
+import Loader from '../ui/Loader/Loader'
 
 const Episode = ({ podcastDetails }) => {
-	const { id } = useParams()
-
-	const handleStoragePodcast = () => {
-		const podcastId = 'PodcastDetails' + id
-		const existingPodcast = localStorage.getItem(podcastId)
-		if (!existingPodcast) {
-			const newPodcast = {
-				id: podcastId,
-				podcastDetails,
-				timestamp: Date.now(),
-			}
-			localStorage.setItem(podcastId, JSON.stringify(newPodcast))
-		}
-	}
-
 	return (
 		<>
-			{podcastDetails &&
+			{podcastDetails ? (
 				podcastDetails.slice(1).map(episode => {
 					const releaseDate = new Date(episode.releaseDate)
 					const year = releaseDate.getFullYear()
@@ -36,18 +24,35 @@ const Episode = ({ podcastDetails }) => {
 						.padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
 
 					return (
-						<div key={episode.trackId}>
-							<Link
-								onClick={handleStoragePodcast}
-								to={`/podcast/${episode.collectionId}/episode/${episode.trackId}`}
-							>
-								{episode.trackName}
-							</Link>
-							<p>{`${day}/${month}/${year}`}</p>
-							<p>{formattedTime}</p>
+						<div className='podp-episode-container' key={episode.trackId}>
+							<div className='podp-episode-title'>
+								<PlayIcon />
+								<Link
+									className='podp-episode-text'
+									to={`/podcast/${episode.collectionId}/episode/${episode.trackId}`}
+								>
+									{episode.trackName}
+								</Link>
+							</div>
+							<div className='podp-episode-other-details'>
+								<p className='podp-episode-date'>{`${day}/${month}/${year}`}</p>
+								<p className='podp-episode-time'>{formattedTime}</p>
+							</div>
 						</div>
 					)
-				})}
+				})
+			) : (
+				<>
+					<div className='podp-loader-container'>
+						<p className='podp-episode-msg-search'>
+							One moment please, searching for the episodes...
+						</p>
+						<div className='podp-loader'>
+							<Loader />
+						</div>
+					</div>
+				</>
+			)}
 		</>
 	)
 }

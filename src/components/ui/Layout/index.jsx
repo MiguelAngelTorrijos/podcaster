@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types'
+import './styles.scss'
+
 import Header from '../Header'
 
 const Layout = ({ children }) => {
 	return (
-		<div>
-			<Header />
+		<div className='layout'>
+			<div>
+				<Header />
+			</div>
 			{children}
 		</div>
 	)
