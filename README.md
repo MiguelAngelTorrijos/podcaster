@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Podcaster
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Podcaster is a frontend application developed in React. It is a podcast application that has three views:
 
-In the project directory, you can run:
+1. **General**: Displays all the available podcasts.
+2. **Podcast Details**: Shows the corresponding episodes for the selected podcast.
+3. **Episode Details**: Allows playback of the selected episode with an integrated player.
 
-### `npm start`
+The application has been created using the **Create React App** boilerplate.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Used Packages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The following packages have been used in this application:
 
-### `npm test`
+- **Axios**: For making API requests.
+- **React Router Dom**: For routing within the application.
+- **PropTypes**: For defining component property types.
+- **Sass**: For styles and CSS organization.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Download the project.
+2. Open the command terminal and run:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
+```bash
+yarn install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. In the project root, you will find a `.env.example` file that contains environment variables for API URLs. Copy these variables into a new `.env` file.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Development Mode
 
-### `npm run eject`
+To run the application in development mode, use the command:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run start
+```
+```bash
+yarn start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Production Mode
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To run the application in production mode, first generate a build with the command:
 
-## Learn More
+```bash
+npm run build
+```
+```bash
+yarn run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Then, to execute the application in production mode, use the command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npx serve -s build
+```
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Thank you for visiting my project! I hope you enjoy using Podcaster.
 
-### Analyzing the Bundle Size
+Greetings 👋
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Mats 😊
