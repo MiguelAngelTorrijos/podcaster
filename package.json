@@ -14,7 +14,7 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"start:prod": "npx serve -s build",
+		"start:prod": "npx serve -s start",
 		"build": "react-scripts build",
 		"format": "prettier --write .",
 		"lint": "eslint --fix . --ext .js,.jsx"

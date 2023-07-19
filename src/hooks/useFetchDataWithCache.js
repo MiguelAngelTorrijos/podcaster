@@ -8,6 +8,7 @@ const useFetchDataWithCach = async (
 ) => {
 	try {
 		const cachedData = localStorage.getItem(cacheKey)
+
 		if (cachedData) {
 			const { data, timestamp } = JSON.parse(cachedData)
 			const currentTime = new Date().getTime()
