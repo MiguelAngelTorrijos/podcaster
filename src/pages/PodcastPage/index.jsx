@@ -6,8 +6,9 @@ import PodcastInfo from '../../components/PodcastInfo'
 import Episode from '../../components/Episode'
 import Layout from '../../components/ui/Layout'
 import TitleSection from '../../components/ui/TitleSection'
-import useFetchDataWithCach from '../../hooks/useFetchDataWithCache'
 import { scrollTop } from '../../utilities/scrollTop'
+import { literals } from '../../constants/literals'
+import { fetchPodcastsDetails } from '../../services/fetchPodcastsDetails'
 
 const PodcastPage = () => {
 	const { id } = useParams()
@@ -18,45 +19,33 @@ const PodcastPage = () => {
 		scrollTop()
 	}, [])
 
-	const fetchPodcastsDetails = async () => {
-		const allOriginsProxy = process.env.REACT_APP_ALL_SERVICE_API_URL
-		const limit = 20
-		const itunesURL = process.env.REACT_APP_ALL_ITUNES_API_URL
-		const url = `${itunesURL}/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${limit}`
-		const { data } = await useFetchDataWithCach(
-			`${allOriginsProxy}/get?url=${encodeURIComponent(url)}`,
-			`podcast_${id}`,
-			24 * 60 * 60 * 1000,
-		)
-		setPodcastDetails(JSON.parse(data.contents))
-	}
-
 	useEffect(() => {
-		fetchPodcastsDetails()
+		fetchPodcastsDetails(id, setPodcastDetails)
 	}, [])
 
 	useEffect(() => {
 		if (podcastDetails.results) {
 			setIdPodcast(
-				podcastDetails.results.find(result => result.wrapperType === 'track')
-					.collectionId,
+				podcastDetails.results.find(
+					result => result.wrapperType === literals.WRAPPER_TIPE,
+				).collectionId,
 			)
 		}
 	}, [podcastDetails.results])
 
-	const title = 'Episodes'
+	const idPodcstStr = String(idPodcast)
+	const quantityPodcasts = podcastDetails.resultCount - 1
 
 	return (
 		<Layout>
 			<div className='super-container'>
 				<div className='podp-container'>
-					{idPodcast && <PodcastInfo id={String(idPodcast)} />}
+					{idPodcast && <PodcastInfo id={idPodcstStr} />}
 					<div className='podp-list'>
 						<TitleSection
-							title={title}
-							quantity={podcastDetails.resultCount - 1}
+							title={literals.PODCAST_PAGE_TITLE}
+							quantity={quantityPodcasts}
 						/>
-
 						<Episode podcastDetails={podcastDetails.results} />
 					</div>
 				</div>

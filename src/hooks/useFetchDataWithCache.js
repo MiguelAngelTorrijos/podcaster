@@ -1,9 +1,10 @@
 import axios from 'axios'
+import { literals } from '../constants/literals'
 
 const useFetchDataWithCach = async (
 	url,
 	cacheKey,
-	maxAge = 24 * 60 * 60 * 1000,
+	maxAge = literals.TWENTY_FOUR_HOURS,
 ) => {
 	try {
 		const cachedData = localStorage.getItem(cacheKey)
@@ -25,7 +26,7 @@ const useFetchDataWithCach = async (
 		localStorage.setItem(cacheKey, dataWithTimestamp)
 		return { data }
 	} catch (error) {
-		console.error('Error when fetching data:', error)
+		console.error(literals.ERROR_FETCHING_CATCH, error)
 		throw error
 	}
 }

@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './styles.scss'
+
 import { infoCachedData } from '../../utilities/getInfoCacheData'
+import { literals } from '../../constants/literals'
 
 const PodcastHome = props => {
 	const handleDataInfo = () => {
 		const data = props
-		const maxAge = 24 * 60 * 60 * 1000
+		const maxAge = literals.DESCRIPTION_TEXT
 		const cacheKey = 'details_podcast_' + props.podcast.id.attributes['im:id']
 		infoCachedData(maxAge, cacheKey, data)
 	}

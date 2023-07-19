@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import './styles.scss'
 import { ReactComponent as SearchIcon } from '../../assets/Search-icon.svg'
+import { literals } from '../../constants/literals'
 
 const SearchBar = ({ setSearchTerm, searchTerm }) => {
 	const handleSearchTerm = event => {
 		setSearchTerm(event.target.value)
 	}
-	const placeHolderText = 'Search artists, podcasts...'
 
 	return (
 		<div className='sb-container'>
@@ -16,7 +16,7 @@ const SearchBar = ({ setSearchTerm, searchTerm }) => {
 				type='text'
 				value={searchTerm}
 				onChange={handleSearchTerm}
-				placeholder={placeHolderText}
+				placeholder={literals.PLACEHOLDER_TEXT}
 			/>
 		</div>
 	)

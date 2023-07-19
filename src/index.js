@@ -1,32 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.scss'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import HomePage from './pages/HomePage'
-import PodcastPage from './pages/PodcastPage'
-import EpisodePage from './pages/EpisodePage'
+import './styles/index.scss'
+import { RouterProvider } from 'react-router-dom'
 import { AxiosInterceptor } from './interceptors/index'
+import { router } from './router/router'
 
 AxiosInterceptor()
 
-const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <HomePage />,
-		errorElement: <HomePage />,
-		exact: true,
-	},
-	{
-		path: '/podcast/:id',
-		element: <PodcastPage />,
-		exact: true,
-	},
-	{
-		path: '/podcast/:podcastId/episode/:episodeId',
-		element: <EpisodePage />,
-		exact: true,
-	},
-])
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 	<React.StrictMode>

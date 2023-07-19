@@ -3,20 +3,19 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './styles.scss'
 import Linkify from 'react-linkify'
+import { literals } from '../../constants/literals'
 
 const PodcastInfo = ({ id }) => {
 	const [localStorageData, setLocalStorageData] = useState(null)
 
 	useEffect(() => {
-		const storedData = localStorage.getItem('details_podcast_' + id)
+		const storedData = localStorage.getItem(`details_podcast_${id}`)
 
 		if (storedData) {
 			const parsedData = JSON.parse(storedData)
 			setLocalStorageData(parsedData.data.podcast)
 		}
 	}, [])
-
-	const description = 'Description'
 
 	return (
 		<>
@@ -42,7 +41,7 @@ const PodcastInfo = ({ id }) => {
 							{localStorageData['im:name'].label}
 						</Link>
 						<div className='pod-info-description'>
-							<span>{description}</span>
+							<span>{literals.DESCRIPTION_TEXT}</span>
 							<Linkify>
 								<p>{localStorageData.summary.label}</p>
 							</Linkify>

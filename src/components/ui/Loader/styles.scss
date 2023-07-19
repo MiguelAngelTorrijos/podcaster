@@ -13,6 +13,8 @@
 	animation: animate 1.5s ease-in-out infinite;
 	display: inline-block;
 	margin: 0.5rem;
+	animation-duration: 1.5s;
+	animation-iteration-count: 3;
 }
 .loader div:nth-child(0) {
 	animation-delay: 0s;

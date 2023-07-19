@@ -1,4 +1,4 @@
-@import 'styles/variables/colors';
+@import './variables/colors';
 
 body {
 	margin: 0;
@@ -15,35 +15,35 @@ code {
 
 @font-face {
 	font-family: 'Inter';
-	src: url('./styles/fonts/Inter-Bold.ttf') format('truetype');
+	src: url('./fonts/Inter-Bold.ttf') format('truetype');
 	font-weight: bold;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Inter';
-	src: url('./styles/fonts/Inter-Medium.ttf') format('truetype');
+	src: url('./fonts/Inter-Medium.ttf') format('truetype');
 	font-weight: medium;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Inter';
-	src: url('./styles/fonts/Inter-Regular.ttf') format('truetype');
+	src: url('./fonts/Inter-Regular.ttf') format('truetype');
 	font-weight: regular;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Inter';
-	src: url('./styles/fonts/Inter-Thin.ttf') format('truetype');
+	src: url('./fonts/Inter-Thin.ttf') format('truetype');
 	font-weight: thin;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Inter';
-	src: url('./styles/fonts/Inter-Light.ttf') format('truetype');
+	src: url('./fonts/Inter-Light.ttf') format('truetype');
 	font-weight: light;
 	font-style: normal;
 }

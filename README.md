@@ -18,6 +18,7 @@ The following packages have been used in this application:
 - **React Router Dom**: For routing within the application.
 - **PropTypes**: For defining component property types.
 - **Sass**: For styles and CSS organization.
+- **React Linkify** For React component to parse links (urls, emails, etc.) in text into clickable links.
 
 ## Installation
 
@@ -27,6 +28,7 @@ The following packages have been used in this application:
 ```bash
 npm install
 ```
+
 ```bash
 yarn install
 ```
@@ -40,10 +42,10 @@ To run the application in development mode, use the command:
 ```bash
 npm run start
 ```
+
 ```bash
 yarn start
 ```
-
 
 ## Production Mode
 
@@ -52,6 +54,7 @@ To run the application in production mode, first generate a build with the comma
 ```bash
 npm run build
 ```
+
 ```bash
 yarn run build
 ```
@@ -61,7 +64,6 @@ Then, to execute the application in production mode, use the command:
 ```bash
 npx serve -s build
 ```
-
 
 Thank you for visiting my project! I hope you enjoy using Podcaster.
 

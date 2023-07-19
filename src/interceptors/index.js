@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getValidationError } from '../utilities/get-validation-error'
+import { getValidationError } from '../utilities/getValidationError'
 
 export const AxiosInterceptor = () => {
 	const updateHeader = request => {

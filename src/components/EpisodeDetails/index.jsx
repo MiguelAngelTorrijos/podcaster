@@ -6,6 +6,7 @@ import Linkify from 'react-linkify'
 
 const EpisodeDetails = ({ podcastId, episodeId }) => {
 	const [episodeDetails, setEpisodeDetails] = useState({})
+
 	const [localStorageData, setLocalStorageData] = useState({})
 
 	useEffect(() => {
